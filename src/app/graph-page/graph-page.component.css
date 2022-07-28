@@ -1,0 +1,16 @@
+.chartDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start
+    }
+  .charColl{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+  }
+  .chart-container
+    {
+      width: 50vh;
+      height: 40vh;
+    }
+  

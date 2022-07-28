@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="opened=!opened">
+            <mat-icon >menu</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>home</mat-icon>
+            Home
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened" mode="push" style="background-color: rebeccapurple">
+        <h4 class="name">{{nome}}</h4>
+        <mat-icon class="avatar">
+            person
+        </mat-icon>
+        <p class="job">{{job}}</p>
+        <mat-list>
+            <mat-list-item>
+                <button mat-button routerLink="/home">
+                    <mat-icon style="color:white">home
+                    </mat-icon>
+                    <a style="color: white">Home</a>
+                </button>
+                
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button routerLink="/graph">
+                    <mat-icon style="color:white"> insert_chart
+                    </mat-icon>
+                    <a style="color:white">Gráficos</a>
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
