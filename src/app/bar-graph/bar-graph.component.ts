@@ -10,6 +10,7 @@ import {
   ApexXAxis,
   ApexFill
 } from "ng-apexcharts";
+import { ThemeService } from '../services/theme.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -33,8 +34,12 @@ export class BarGraphComponent implements OnInit {
   @ViewChild("chart")
   chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+  private isDark:boolean;
+  private theme:string;
 
-  constructor() {
+  constructor(private themeService : ThemeService) {
+    this.isDark=this.themeService.isDarkMode();
+    this.isDark? this.theme="white":this.theme="black"
     this.chartOptions = {
       series: [
         {
@@ -61,7 +66,7 @@ export class BarGraphComponent implements OnInit {
         offsetY: -20,
         style: {
           fontSize: "12px",
-          colors: ["#304758"]
+          colors: [this.theme]
         }
       },
 
@@ -71,7 +76,10 @@ export class BarGraphComponent implements OnInit {
         ],
         position: "bot",
         labels: {
-          offsetY: 0
+          offsetY: 0,
+          style:{
+            colors: this.theme
+          }
         },
         axisBorder: {
           show: true
@@ -83,8 +91,8 @@ export class BarGraphComponent implements OnInit {
           fill: {
             type: "gradient",
             gradient: {
-              colorFrom: "#D8E3F0",
-              colorTo: "#BED1E6",
+              colorFrom: this.theme,
+              colorTo: this.theme,
               stops: [0, 100],
               opacityFrom: 0.4,
               opacityTo: 0.5
@@ -129,7 +137,7 @@ export class BarGraphComponent implements OnInit {
         offsetY: 0,
         align: "center",
         style: {
-          color: "#444"
+          color: this.theme
         }
       }
     };

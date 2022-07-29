@@ -1,21 +1,23 @@
-<mat-toolbar color="primary">
+<mat-toolbar style="background-color: rebeccapurple">
     <mat-toolbar-row>
-        <button mat-icon-button (click)="opened=!opened">
+        <button style="color: white" mat-icon-button (click)="opened=!opened">
             <mat-icon >menu</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button style="color: white" mat-icon-button>
             <mat-icon>home</mat-icon>
             Home
         </button>
+        <span class="example-spacer"></span>
+        <mat-slide-toggle style="padding: 0 14px;color: white" (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">Dark mode</mat-slide-toggle>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="push" style="background-color: rebeccapurple">
-        <h4 class="name">{{nome}}</h4>
+        <h4 class="name" style="color: white">{{nome}}</h4>
         <mat-icon class="avatar">
             person
         </mat-icon>
-        <p class="job">{{job}}</p>
+        <p class="job" style="color: white">{{job}}</p>
         <mat-list>
             <mat-list-item>
                 <button mat-button routerLink="/home">

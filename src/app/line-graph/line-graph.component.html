@@ -1,4 +1,14 @@
 <mat-card class="chart-container"  style="border-radius: 1vh; ">
-        <canvas id="my-chart">
-        </canvas>
+    <div id="chart-line">
+        <apx-chart
+          [series]="chartOptions1.series!"
+          [chart]="chartOptions1.chart!"
+          [xaxis]="chartOptions1.xaxis!"
+          [dataLabels]="chartOptions1.dataLabels!"
+          [colors]="chartOptions1.colors!"
+          [fill]="chartOptions1.fill!"
+          [markers]="chartOptions1.markers!"
+          [stroke]="chartOptions1.stroke!"
+        ></apx-chart>
+      </div>
 </mat-card>

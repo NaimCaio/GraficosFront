@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {  ChartComponent } from "ng-apexcharts";
+import { ThemeService } from '../services/theme.service';
 
 import {
   ApexNonAxisChartSeries,
@@ -29,8 +30,12 @@ export class SemiDonutComponent implements OnInit {
   @ViewChild("chart")
   chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+  private isDark:boolean;
+  private theme:string;
 
-  constructor() {
+  constructor(private themeService:ThemeService) {
+    this.isDark=this.themeService.isDarkMode();
+    this.isDark? this.theme="white":this.theme="black"
     this.chartOptions = {
       series: [76],
       chart: {
@@ -55,21 +60,18 @@ export class SemiDonutComponent implements OnInit {
           },
           dataLabels: {
             name: {
-              show: false
+              offsetY: -10,
+              color: this.theme,
+              fontSize: "13px"
             },
             value: {
-              offsetY: -2,
-              fontSize: "22px"
+              color: this.theme,
+              fontSize: "30px",
+              show: true
             }
           }
         }
-      },title: {
-        text: "Distância Cidades",
-        
-        style: {
-          color: "#444"
-        }
-      },
+      }
       
     };
   }

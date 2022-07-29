@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { GraphPageComponent } from './graph-page/graph-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
